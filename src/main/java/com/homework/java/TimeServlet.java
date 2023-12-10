@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 
-@WebServlet(value = "/")
+@WebServlet(value = "/time")
 public class TimeServlet extends HttpServlet {
     private Page page;
 

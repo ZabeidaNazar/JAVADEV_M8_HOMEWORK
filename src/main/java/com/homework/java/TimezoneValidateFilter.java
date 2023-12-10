@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.ZoneId;
 
-@WebFilter(value = "/")
+@WebFilter(value = "/time")
 public class TimezoneValidateFilter extends HttpFilter {
     private Page page;
 
