@@ -25,15 +25,14 @@ public class TimezoneValidateFilter extends HttpFilter {
         String timezone = req.getParameter("timezone");
 
         if (timezone == null) {
-            writeError(resp);
-            return;
-        }
-
-        try {
-            req.setAttribute("zone", ZoneId.of(timezone.toUpperCase()));
-        } catch (Exception ignored) {
-            writeError(resp);
-            return;
+            req.setAttribute("zone", ZoneId.of("UTC"));
+        } else {
+            try {
+                req.setAttribute("zone", ZoneId.of(timezone.toUpperCase()));
+            } catch (Exception ignored) {
+                writeError(resp);
+                return;
+            }
         }
 
         chain.doFilter(req, resp);
